@@ -1,18 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ItemList from './ItemList';
 import ItemDetail from './ItemDetail';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* Homepage displaying the 3 items */}
-        <Route path="/" element={<ItemList />} />
-        
-        {/* Dynamic item view route matching /items/:id */}
-        <Route path="/items/:id" element={<ItemDetail />} />
-      </Routes>
+      <Switch>
+        <Route exact path="/" component={ItemList} />
+        <Route path="/items/:id" component={ItemDetail} />
+      </Switch>
     </BrowserRouter>
   );
 }
