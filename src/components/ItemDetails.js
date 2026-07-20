@@ -1,29 +1,23 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { itemsData } from './mockData';
+import { useParams } from 'react-router-dom';
+import { itemsData } from './ItemList';
 
-function ItemDetail() {
+const ItemDetail = () => {
   const { id } = useParams();
   
-  // Find the item matching the ID from the URL parameter
-  const item = itemsData.find((i) => i.id === parseInt(id, 10));
+  // Find the matching item based on the route parameter
+  const item = itemsData.find((i) => i.id === id);
 
   if (!item) {
-    return (
-      <div>
-        <h2>Item not found</h2>
-        <Link to="/">Back to Item List</Link>
-      </div>
-    );
+    return <h2>Item not found</h2>;
   }
 
   return (
     <div>
       <h1>{item.name}</h1>
       <p>{item.description}</p>
-      <Link to="/">Back to Item List</Link>
     </div>
   );
-}
+};
 
 export default ItemDetail;

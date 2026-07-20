@@ -7,10 +7,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Homepage Route */}
+        {/* Homepage displaying the 3 items */}
         <Route path="/" element={<ItemList />} />
         
-        {/* Dynamic Item Detail Route */}
+        {/* Dynamic item view route matching /items/:id */}
         <Route path="/items/:id" element={<ItemDetail />} />
       </Routes>
     </BrowserRouter>
